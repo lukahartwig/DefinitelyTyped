@@ -23,7 +23,8 @@ export interface DefaultPlugin<N extends string, P = never> {
  */
 export type AddAttributesToSVGElementPlugin = DefaultPlugin<
     'addAttributesToSVGElement',
-    { attribute: string | Record<string, null | string> } | { attributes: Array<string | Record<string, null | string>> }
+    | { attribute: string | Record<string, null | string> }
+    | { attributes: Array<string | Record<string, null | string>> }
 >;
 
 /**
@@ -314,6 +315,7 @@ export type PluginsPlugin = DefaultPlugin<'plugins'>;
 export type PrefixIdsPlugin = DefaultPlugin<
     'prefixIds',
     {
+        prefix?: boolean | string | undefined | ((node: any, info: any) => string);
         /** @default '__' */
         delim?: string | undefined;
         /** @default true */

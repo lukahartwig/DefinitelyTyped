@@ -220,7 +220,12 @@ optimized = optimize('', {
         { name: 'minifyStyles', params: { usage: { force: false, ids: true, classes: true, tags: true } } },
         { name: 'moveElemsAttrsToGroup' },
         { name: 'moveGroupAttrsToElems' },
-        { name: 'prefixIds', params: { delim: '__', prefixIds: true, prefixClassNames: true } },
+        { name: 'prefixIds', params: { prefix: 'test', delim: '__', prefixIds: true, prefixClassNames: true } },
+        { name: 'prefixIds', params: { prefix: true, delim: '__', prefixIds: true, prefixClassNames: true } },
+        {
+            name: 'prefixIds',
+            params: { prefix: (node, info) => 'test', delim: '__', prefixIds: true, prefixClassNames: true },
+        },
         { name: 'removeAttributesBySelector' },
         { name: 'removeAttrs', params: { elemSeparator: ':', preserveCurrentColor: false, attrs: 'fill' } },
         { name: 'removeAttrs', params: { elemSeparator: ':', preserveCurrentColor: false, attrs: ['fill', 'stroke'] } },
